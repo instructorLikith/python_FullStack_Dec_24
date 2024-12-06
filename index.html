@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Store</title>
+</head>
+<body>
+    <header>
+        <div class="head">
+            <h2>Mobile Store</h2>
+        </div>
+
+        <div class="navbar" id="navbar"> 
+            <ul>
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#About Us">About Us</a></li>
+                <li><a href="#Contact">Contact</a></li>
+                <li><a href="#Service">Service</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+    <main>
+        <section class="Home" id="Home">
+            <h1>Welcome to Mobile Store</h1>
+            <form action="#Home" method="post" ></form>
+
+            <label for="phone_brand">Select Your Phone Brand</label>
+            <select name="phone_brand" id="phone_brand">
+                <option> IPhone </option>
+                <option> Samsung </option>
+                <option> Oppo </option>
+                <option> Oneplus </option>
+            </select>
+            <br>
+            <label for="user_name">Name</label>
+            <input type="text" name="user_name">
+            <br>
+            <label for="user_phone">Enter Phone Number</label>
+            <input type="number" name="user_phone">
+            <br>
+            <label for="user_age">Enter Your Age</label>
+            <input type="number" name="user_age">
+            <br>
+            <label for="user_dob">Enter your DOB</label>
+            <input type="date" name="user_dob">
+            <br>
+            <label for="user_mail">Enter Your EmailId</label>
+            <input type="email" name="user_mail">
+            <br>
+            <label for="user_pwd">Enter Your Password</label>
+            <input type="password" name="user_pwd">
+            <br>
+            <label for="submit">Click to Submit</label>
+            <button type="button">Click Me!</button>
+        </section>
+    </main>
+
+
+    <section class="About" id="about">
+        <h1>About our Company !</h1>
+        <p>Mobile store is the best store in the city where you will find all type of mobiles!!</p>
+    </section>
+
+    <section class="Contact" id="Contact">
+        <h1>Contact Us</h1>
+        <p>Address : Bengaluru</p>
+        <p>Store Ph : 9999999999</p>
+    </section>
+
+    <section class="Service" id="Service">
+        <h1>Service Provided By Us</h1>
+        <ol>
+            <li>New Phone</li>
+            <li>Phone Repair</li>
+            <li>Phone service</li>
+            <li>Exchange</li>
+        </ol>
+    </section>
+    
+</body>
+</html>
