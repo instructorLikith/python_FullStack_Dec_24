@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Store</title>
+    <link rel="stylesheet" href="./css/index.css" />
 </head>
 <body>
     <header>
-        <div class="head">
-            <h2>Mobile Store</h2>
+        <img src="./images/ml.avif" height="100px" width="100px">
+        <div class="head" id="head">
+            <h2 class="heading">Mobile Store</h2>
         </div>
-
+        
         <div class="navbar" id="navbar"> 
             <ul>
-                <li><a href="#Home">Home</a></li>
-                <li><a href="#About Us">About Us</a></li>
+                <li><a class="active" href="#Home">Home</a></li>
                 <li><a href="#Contact">Contact</a></li>
                 <li><a href="#Service">Service</a></li>
+                <li style="float: right;"><a class="about-link" href="#About Us">About Us</a></li>
             </ul>
         </div>
 
@@ -24,7 +26,7 @@
 
     <main>
         <section class="Home" id="Home">
-            <h1>Welcome to Mobile Store</h1>
+            <h2>Welcome to Mobile Store</h2>
             <form action="#Home" method="post" ></form>
 
             <label for="phone_brand">Select Your Phone Brand</label>
