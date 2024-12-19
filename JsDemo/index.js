@@ -1,114 +1,184 @@
-var str = "this is a \"javascript\" demo"; //Escape Character
-console.log(str)
-
-var str1 = 'this is a "javascript" demo'
-console.log(str1)
-
-// Escape Sequence
-// \'
-// \"
-// \\ backslash
-// \n newLine
-// \t tabspace
-// \b backspace
-
-var str2 = "FirstLine\n\t\\SecondLine\nThirdLine";
-console.log(str2)
-
-//string length
-var str3 = "this is a string example";
-console.log(str3.length)
-
-//Bracket Notation
-var str4 = "exampl" // zero based indexing 0 - 5
-console.log(str4[3])
-
-//Immutability of string
-var str5 = "Jello World";
-str5[0] = "H"  // not allowed
-str5 = "Hello World"; // allowed
-console.log(str5)
-
-//Finding Nth letter of string
-var str6 = "this";
-console.log(str6[str6.length - 2])
-
-//substring 
-var str7 = "example"
-var first4letters = str7.substring(0,4)
-console.log(first4letters)
-
-
-// Arrays
-// Allows storing data of different types
-// ["string",0000,true]
-
-var arr1 = ["test", 10, true];
-
-// Multi Dimention/ Nested Array
-
-var arr2 = [["test1",1],["test2",2],["test3",true]]
-
-//Access the data in Array
-var arr3 = [10,20,30]
-console.log(arr3)
-
-//Modify the data in Array
-var arr4 = [10,20,30];
-console.log(arr4)
-arr4[2] = 40;
-console.log(arr4)
-
-//Accessing data in multi dimentional Array 
-var arr5 = [["test1",1],["test2",2],["test3",true]]
-console.log(arr5)
-console.log(arr5[1][1])
-
-// push Function -- adds the element at the end
-var arr6 = [10,20,30]
-console.log("arr6 before " + arr6)
-arr6.push(40)
-console.log("arr6 after " + arr6)
-
-// Pop Function -- removes the element at the end
-var arr7 = [10,20,30,40]
-console.log("arr7 before " + arr7)
-arr7.pop()
-console.log("arr7 after " + arr7)
-
-// shift function -- removes the element at the begining
-var arr8 = [10,20,30,40]
-console.log("arr8 before " + arr8)
-arr8.shift()
-console.log("arr8 after " + arr8)
-
-// unshift function -- adds the element at the begining
-var arr9 = [10,20,30]
-console.log("arr9 before " + arr9)
-arr9.shift()
-arr9.push(40)
-console.log("arr9 after " + arr9)
-
-// Resuable Functions & Argument
-function sayHello(userName){
-    console.log("Hello!! " + userName  + " Welcome to the JS Course")
+// Arguments
+function add(a,b){
+    console.log(a + b)
 }
 
-function addNumber(a,b,c) {
-    if(c == 1){
-        console.log(a + b);
+add(2,4)
+
+// Scope - global & local
+
+var global = 10; //global scope
+
+function func1(){
+    // var notGlobal = 5; //local scope
+    notGlobal = 5; //global scope since var is not used
+    var global = 20; //local scope get highest priority
+    console.log("f1 global : " + global);
+    console.log("f1 notGlobal : " + notGlobal);
+}
+
+function func2(){
+    console.log("f2 global : " + global);
+    console.log("f2 notGlobal : " + notGlobal);
+}
+
+func1();
+func2();
+
+// Return value from function
+
+function reduceBy5(num){
+    return num - 5;
+}
+
+function mulBy4(num){
+    return num * 4;
+}
+
+console.log(reduceBy5(12));
+
+console.log(mulBy4(2));
+
+// binding returned value to var
+var retunedValue = reduceBy5(20);
+console.log(retunedValue);
+
+// if Statement chaining
+function isLessThan(val){
+    if(val < 5){
+        return "less than 5";
+    }
+    else if(val < 7){
+        return "less than 7";
+    }
+    else {
+        return "greater than 7";
+    }
+}
+
+console.log(isLessThan(8));
+
+// switch case
+function switchCase(val){
+    var awswer = "";
+
+    switch(val) {
+        case "print" :
+            answer = "case 1";
+            break;
+        case 2 :
+            answer = "case 2";
+            break;
+        default :
+            answer = "nothing matched"
+            break;
+    }
+
+    return answer;
+}
+
+console.log(switchCase(3));
+
+// Loops
+// for loop
+// for(var i = 0; i < 5; i++){
+//     console.log(i);
+// }
+
+// print even numbers using for loop under 10 (i = i + 2)
+for(var i = 1; i < 10; i+=2 ) {
+        console.log(i);
+}
+
+// Iterating through array
+var myArr = [9,10,11,12,13]; // total sum 
+var total = 0;
+
+for(var i = 0; i < myArr.length ; i++){
+    total += myArr[i];
+}
+
+console.log(total);
+
+// while loop
+var j = 6;
+while(j < 5){
+    console.log(j);
+    j++;
+}
+
+// do while
+var k = 6;
+do {
+    console.log(k)
+    k++;
+} while( k < 5)
+
+// Objects  
+// Building Objects
+var car = {
+   "color" : "white",
+   "seat":5,
+   "wheels":4,
+   "brand":"ford"
+}
+
+// dot notation
+var carColor = car.color;
+console.log(carColor);
+
+var carBrand = car.brand;
+console.log(carBrand);
+
+//bracket notation
+var carSeat = car['seat'] 
+console.log(carSeat);
+
+var colorCode = {
+    1 : "white",
+    2: "red",
+    3: "blue",
+    4: "green"
+}
+
+var code = 3;
+var color = colorCode[code]
+console.log(color)
+
+// Updating Property Values
+
+car.brand = "toyota";
+console.log(car.brand)
+
+// adding new property 
+car.rating = "5 star";
+console.log(car)
+
+//delete property
+delete car.rating;
+console.log(car)
+
+//Testing objects for properties
+function checkProp(prop) {
+    if(car.hasOwnProperty(prop)){
+        console.log("property available");
     }
     else{
-        console.log(a - b);
+        console.log("property not available")
     }
 }
 
-sayHello("test1");
-sayHello("test2");
-sayHello("test3");
-sayHello("test4");
-sayHello("test5");
-sayHello("test6");
-sayHello("test7");
+checkProp("color")
 
-addNumber(5,10,2);
+//Nested Objects
+var car2 = {
+    "inside" : {
+        "seat" : "leather"
+    },
+    "outside" : {
+        "color" : "white"
+    }
+}
+
+var outColor = car2.outside.color;
+console.log(outColor)
