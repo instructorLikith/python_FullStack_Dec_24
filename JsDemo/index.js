@@ -1,184 +1,72 @@
-// Arguments
-function add(a,b){
-    console.log(a + b)
-}
+// Problem 1 : Reverse a String
+// "hello world" --> "dlrow olleh"
 
-add(2,4)
-
-// Scope - global & local
-
-var global = 10; //global scope
-
-function func1(){
-    // var notGlobal = 5; //local scope
-    notGlobal = 5; //global scope since var is not used
-    var global = 20; //local scope get highest priority
-    console.log("f1 global : " + global);
-    console.log("f1 notGlobal : " + notGlobal);
-}
-
-function func2(){
-    console.log("f2 global : " + global);
-    console.log("f2 notGlobal : " + notGlobal);
-}
-
-func1();
-func2();
-
-// Return value from function
-
-function reduceBy5(num){
-    return num - 5;
-}
-
-function mulBy4(num){
-    return num * 4;
-}
-
-console.log(reduceBy5(12));
-
-console.log(mulBy4(2));
-
-// binding returned value to var
-var retunedValue = reduceBy5(20);
-console.log(retunedValue);
-
-// if Statement chaining
-function isLessThan(val){
-    if(val < 5){
-        return "less than 5";
-    }
-    else if(val < 7){
-        return "less than 7";
-    }
-    else {
-        return "greater than 7";
-    }
-}
-
-console.log(isLessThan(8));
-
-// switch case
-function switchCase(val){
-    var awswer = "";
-
-    switch(val) {
-        case "print" :
-            answer = "case 1";
-            break;
-        case 2 :
-            answer = "case 2";
-            break;
-        default :
-            answer = "nothing matched"
-            break;
+function reverseString(str){
+    var reversed = "";
+    //logic for reversing
+    for(var i = str.length - 1; i >= 0 ; i--){
+        reversed += str[i];
     }
 
-    return answer;
+    //logic complete
+    console.log(str)
+    return reversed;
 }
 
-console.log(switchCase(3));
+console.log(reverseString("hello world"));
 
-// Loops
-// for loop
-// for(var i = 0; i < 5; i++){
-//     console.log(i);
-// }
+// Problem 2 : Print largest Number
+// arr = [10, 5 ,15 , 8, 25 , 22]  --> 25
 
-// print even numbers using for loop under 10 (i = i + 2)
-for(var i = 1; i < 10; i+=2 ) {
-        console.log(i);
-}
+function findMax(arr){
+    var max = arr[0];
 
-// Iterating through array
-var myArr = [9,10,11,12,13]; // total sum 
-var total = 0;
-
-for(var i = 0; i < myArr.length ; i++){
-    total += myArr[i];
-}
-
-console.log(total);
-
-// while loop
-var j = 6;
-while(j < 5){
-    console.log(j);
-    j++;
-}
-
-// do while
-var k = 6;
-do {
-    console.log(k)
-    k++;
-} while( k < 5)
-
-// Objects  
-// Building Objects
-var car = {
-   "color" : "white",
-   "seat":5,
-   "wheels":4,
-   "brand":"ford"
-}
-
-// dot notation
-var carColor = car.color;
-console.log(carColor);
-
-var carBrand = car.brand;
-console.log(carBrand);
-
-//bracket notation
-var carSeat = car['seat'] 
-console.log(carSeat);
-
-var colorCode = {
-    1 : "white",
-    2: "red",
-    3: "blue",
-    4: "green"
-}
-
-var code = 3;
-var color = colorCode[code]
-console.log(color)
-
-// Updating Property Values
-
-car.brand = "toyota";
-console.log(car.brand)
-
-// adding new property 
-car.rating = "5 star";
-console.log(car)
-
-//delete property
-delete car.rating;
-console.log(car)
-
-//Testing objects for properties
-function checkProp(prop) {
-    if(car.hasOwnProperty(prop)){
-        console.log("property available");
+    for(var i = 1 ; i < arr.length ; i++){
+        if(arr[i] > max){
+           max = arr[i];
+        }
     }
-    else{
-        console.log("property not available")
-    }
+
+    console.log(max)
 }
 
-checkProp("color")
+findMax([10, 5 ,15 , 8, 25 , 22])
 
-//Nested Objects
-var car2 = {
-    "inside" : {
-        "seat" : "leather"
-    },
-    "outside" : {
-        "color" : "white"
+//problem 3 : reverse letters in each word
+//"hello world" --> "olleh dlrow"
+
+function wordsReverse(str){
+    var words = str.split(' ');
+    console.log(words);
+    var result = []
+    console.log(words[0].split(''))
+    for(var i =0; i < words.length ; i++){
+        result.push(words[i].split('').reverse().join(''));
     }
+    result.join(' ');
+    console.log(result.join(' '));
 }
 
-var outColor = car2.outside.color;
-console.log(outColor)
+wordsReverse("hello world");
+
+//problem 4 : ⁠Write a function that removes duplicates from an array.
+function removeDuplicate(arr){
+    return [...new Set(arr)];
+}
+
+console.log(removeDuplicate([1,2,2,3,4,5,5]))
+// create empty array 
+// loop input array
+// 1 -> [1,2,3,4,5] check if the number exist in new array, if not add else reject
+
+
+//problem 5 : ⁠Given an array containing numbers from 1 to N, with one number missing, find the missing number.
+//1,2,3,4,5 = 15 ....  1,2,3,5 = 11 ....  15 - 11 = 4
+function missingNumber(arr){
+    const n = arr.length + 1;
+    const expectedSum = (n * (n + 1)) / 2;
+    const actualSum = arr.reduce((arr, curr) => arr + curr, 0);
+    return expectedSum - actualSum;
+}
+
+console.log(missingNumber([1,2,3,5]))
