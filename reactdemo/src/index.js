@@ -2,6 +2,8 @@ import React from "react";
 import ReactDom from "react-dom/client";
 
 import './index.css'
+import {books} from './books'
+import Book from './Book'
 
 // use caps for naming cmpt - component
 // function SayHello()
@@ -63,18 +65,28 @@ import './index.css'
 // root.render(<SayHello />);
 //---------------------------------------- Basic & CSS --------------------------
 
-//------------------------------------- Props ---------------------------------
+// // function declaration
+// function SayHello(name){
+//   console.log(`Hello, ${name}`)
+// }
 
-const books = [
-  {
-    title : "Kannada",
-    author: "Raj"
-  },
-  {
-    title : "MicroDegree",
-    author: "Likith"
-  }
-]
+// SayHello('test');
+
+// // function expression
+// const hello = function(name) {
+//   console.log(`Hello, ${name}`)
+// }
+
+// hello('test1');
+
+// // arrow function
+// const hello1 = (name) => {
+//   console.log(`Hello, ${name}`)
+// }
+
+// hello1('test2')
+
+//------------------------------------- Props ---------------------------------
 
 
 //parent component
@@ -86,24 +98,6 @@ function BookList() {
           <Book item={bk} />
         )
       })}
-    </>
-  )
-}
-
-
-//Child Component
-function Book(props){
- // console.log(props)
- function clickHandler(title){
-  console.log(title);
-  var text = "Thanks For Purchasing " + title + " book";
-  alert(text);
- }
-  return (
-    <>
-      <h1>{props.item.title}</h1>
-      <p>{props.item.author}</p>
-      <button type="button" onClick={() => clickHandler(props.item.title)}>Purchase</button>
     </>
   )
 }
